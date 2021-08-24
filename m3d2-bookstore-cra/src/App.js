@@ -3,17 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import MyNavbar from './Components/MyNavbar';
 import Welcome from './Components/Welcome';
 import LatestRelease from './Components/LatestRelease';
+import Footer from "./Components/Footer"
 
 function App() {
   return (
     <div className="App">
-      <MyNavbar color="dark"></MyNavbar>
+      <MyNavbar color="dark"/>
 
-      <Welcome></Welcome>
+      <Welcome />
 
-      <LatestRelease></LatestRelease>
+      <LatestRelease category="scifi"/>
+      <LatestRelease category="romance"/>
+      <LatestRelease category="history"/>
 
-      {/* <Footer color="dark"></Footer> */}
+      <Footer color="dark" />
 
     </div>
   );
