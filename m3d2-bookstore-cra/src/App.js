@@ -13,8 +13,8 @@ function App() {
       <Welcome />
 
       <LatestRelease category="scifi"/>
-      <LatestRelease category="romance"/>
-      <LatestRelease category="history"/>
+      {/* <LatestRelease category="romance"/>
+      <LatestRelease category="history"/> */}
 
       <Footer color="dark" />
 

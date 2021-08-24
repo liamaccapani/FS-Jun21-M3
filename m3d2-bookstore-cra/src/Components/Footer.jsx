@@ -2,8 +2,8 @@ import { Row, Col, Container } from "react-bootstrap";
 
 const Footer = ({color}) => {
     return (
-    <Container fluid>
-        <Row bg={color}>
+    <Container fluid className="mt-4" bg={color}>
+        <Row>
             <Col xs={4}>
                 <h6>CONTACTS</h6>
             </Col>
