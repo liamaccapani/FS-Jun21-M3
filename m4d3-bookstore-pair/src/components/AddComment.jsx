@@ -7,7 +7,7 @@ class AddComment extends React.Component {
     state = {
         comment: '',
         rate: 1,
-        elementID: ''
+        elementId: ''
     }
   
     render() {

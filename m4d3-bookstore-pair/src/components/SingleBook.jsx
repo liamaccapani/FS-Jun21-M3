@@ -28,7 +28,7 @@ class SingleBook extends React.Component {
               
           </Container>
             {
-                this.state.isSelected && <CommentArea />
+                this.state.isSelected && <CommentArea bookId={this.props.singlebook.asin}/>
                 // if(isSelected){
                 //     return <CommentArea/>
                 // }
