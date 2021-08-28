@@ -1,15 +1,16 @@
-import { Badge, ListGroup } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
+import MyBadge from './MyBadge'
 
-const CommentList = ({comments}) => {
+const CommentList = (props) => {
     return (
         <ListGroup>
             {
-                comments.map(c =>  
+                props.comments.map(c =>  
                     <ListGroup.Item key={c.elementId}>
                         <ListGroup>
                         <ListGroup.Item>{c.comment}</ListGroup.Item>
                         <ListGroup.Item>
-                            <Badge bg="secondary">{c.rate}</Badge>
+                            <MyBadge color="primary" text={c.rate} />
                         </ListGroup.Item>               
                         </ListGroup>
                     </ListGroup.Item>

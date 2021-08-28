@@ -1,6 +1,6 @@
 import { Badge } from "react-bootstrap";
 
-const MyBadge = ({text, color}) => {
+const MyBadge = ({color, text}) => {
     return (
         <Badge variant={color}>{text}</Badge>
     )

@@ -16,7 +16,6 @@ class SingleBook extends React.Component {
               <Card 
               //isSelected:true -> no toggle
               //isSelected:!isSelected -> toggle
-              //onClick={()=> this.setState({isSelected: !this.state.isSelected})}
               onClick={()=> this.setState({isSelected: !this.state.isSelected})}
               style={{border: this.state.isSelected ? '2px solid pink' : 'none'}}
               >

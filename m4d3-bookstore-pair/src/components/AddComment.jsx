@@ -40,7 +40,7 @@ class AddComment extends React.Component {
         </Form.Group>
 
         <Button variant="success" type="submit">
-          Submit Reservation
+          Add comment
         </Button>
       </div>
     );
