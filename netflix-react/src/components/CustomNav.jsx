@@ -4,7 +4,9 @@ const CustomNav = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   {/* <Container> */}
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <div style={{width: '100px' , height: '50px'}}> 
+      <img src="./assets/netflix_logo.png" style={{width: '100%' , height: '100%'}} />
+    </div>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
