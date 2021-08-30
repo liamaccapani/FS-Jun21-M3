@@ -20,6 +20,7 @@ class CommentArea extends React.Component {
                 })
             if(response.ok){
                 const data = await response.json()
+                // console.log(data)
                 this.setState({commentsArray: data})
             } else {
                 console.log('OOOPSIE DAISY')
@@ -34,7 +35,7 @@ class CommentArea extends React.Component {
         await this.fetchComments()
     }
 
-    
+
     
     render(){
         return(
@@ -44,7 +45,8 @@ class CommentArea extends React.Component {
                         state.comments
                     } */}
                 </CommentList>
-                <AddComment>
+                {/* ✨✨✨✨✨ how to pass id from singlebook to addcomment? */}
+                <AddComment bookId={this.props}>
 
                 </AddComment>
             </>

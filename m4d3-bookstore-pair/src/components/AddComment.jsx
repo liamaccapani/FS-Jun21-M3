@@ -1,29 +1,28 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 
 // POST -> We need a State
 class AddComment extends React.Component {
     
     state = {
-        commentToPost: {
-          comment: '',
-          rate: 1,
-          elementId: ''
-        }
+        comment: '',
+        rate: 1,
+        elementId: ''
     }
     
     postComment = async  (e) => {
       e.preventDefault()
-      // console.log('You did it')
-      // const toSend = {
-      //   comment: this.setState.comment,
-      //   rate: this.setState.rate,
-      //   elementId: this.props.bookId
-      // }
+      // const bookId = this.props.bookId
+
+      const commentToPost =  {
+        comment: this.state.comment,
+        rate: this.state.rate,
+        elementId: this.props.bookId
+      }
+
       try {
         // const elementId = this.props.elementId
-        const bookId = this.props.bookId
-        const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + bookId, {
+        const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
           method: 'POST',
           body: JSON.stringify(commentToPost),
           headers: {
@@ -45,38 +44,43 @@ class AddComment extends React.Component {
       }
     }
 
+
+
     render() {
     return (
-      <div className="text-center">
-        <Form.Group onClick={}>
-          <Form.Label>Review this book</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
-            value={this.state.comment}
-            onChange={(e) => this.setState({commentToPost: {...this.state.commentToPost, comment: e.target.value}})}
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Rate it</Form.Label>
-          <Form.Control
-            as="select"
-            value={this.state.rate}
-            onChange={(e) => this.setState({commentToPost: {...this.state.commentToPost, rate: e.target.value}})}
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Form.Control>
-        </Form.Group>
-
-        <Button variant="success" type="submit">
-          Add comment
-        </Button>
-      </div>
+      <Container className="text-center">
+        <Form onSubmit={this.postComment}>
+          <Form.Group>
+            <Form.Label>Review this book</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              value={this.state.comment}
+              onChange={(e) => this.setState({comment: e.target.value})}
+            />
+          </Form.Group>
+  
+          <Form.Group>
+            <Form.Label>Rate it</Form.Label>
+            <Form.Control
+              as="select"
+              type="number"
+              value={this.state.rate}
+              onChange={(e) => this.setState({rate: e.target.value})}
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
+  
+          <Button variant="success" type="submit">
+            Add comment
+          </Button>
+        </Form>
+      </Container>
     );
   }
 }
