@@ -10,18 +10,31 @@ class CommentArea extends React.Component {
         commentsArray: []
     }
 
-    async componentDidMount() {
+    fetchComments = async () => {
         const bookId = this.props.bookId
-        const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/'+ bookId , {
-            headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZmJmMDJkNTI2MjAwMTViNmRjYWEiLCJpYXQiOjE2MzAwMTAwODMsImV4cCI6MTYzMTIxOTY4M30.IYE6DU5jYldk8SdSocMrRqffiucDB0xBM0HT5k_OU3w"
+        try {
+            const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/'+ bookId , {
+                headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZmJmMDJkNTI2MjAwMTViNmRjYWEiLCJpYXQiOjE2MzAwMTAwODMsImV4cCI6MTYzMTIxOTY4M30.IYE6DU5jYldk8SdSocMrRqffiucDB0xBM0HT5k_OU3w"
+                }
+                })
+            if(response.ok){
+                const data = await response.json()
+                this.setState({commentsArray: data})
+            } else {
+                console.log('OOOPSIE DAISY')
             }
-            })
-        if(response.ok){
-            const data = await response.json()
-            this.setState({commentsArray: data})
+            
+        } catch (error) {
+            console.log(error)
         }
     }
+
+    async componentDidMount() {
+        await this.fetchComments()
+    }
+
+    
     
     render(){
         return(
@@ -31,7 +44,9 @@ class CommentArea extends React.Component {
                         state.comments
                     } */}
                 </CommentList>
-                <AddComment></AddComment>
+                <AddComment>
+
+                </AddComment>
             </>
         )
 

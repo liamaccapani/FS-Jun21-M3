@@ -1,5 +1,6 @@
 import React from 'react'
-import SingleBook from "./SingleBook"
+// import SingleBook from "./SingleBook"
+import SingleBook2 from './SingleBook2';
 import { Col, Container, Form, Row } from "react-bootstrap"
 
 class BookList extends React.Component {
@@ -38,8 +39,9 @@ class BookList extends React.Component {
                         this.props.allBooks
                         .filter(currBook => currBook.title.toLowerCase().includes(this.state.query.toLowerCase()))
                         .map(currBook => 
-                            <Col md={4}>
-                                <SingleBook singlebook={currBook}/>
+                            // <Col md={4}>
+                            <Col md={6}>
+                                <SingleBook2 singlebook={currBook}/>
                             </Col>)
                     }
                </Row>
@@ -50,6 +52,6 @@ class BookList extends React.Component {
 
 
 
-export default BookList
+export default BookList;
 
 //Booklist knows SingleBook and SingleBook knows what's the state of isSelected
