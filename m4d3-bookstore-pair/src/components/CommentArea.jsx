@@ -45,8 +45,8 @@ class CommentArea extends React.Component {
                         state.comments
                     } */}
                 </CommentList>
-                {/* ✨✨✨✨✨ how to pass id from singlebook to addcomment? */}
-                <AddComment bookId={this.props}>
+                {/* bookId object with bookId property ✨✨ */}
+                <AddComment bookId={this.props.bookId}>
 
                 </AddComment>
             </>

@@ -21,7 +21,6 @@ class AddComment extends React.Component {
       }
 
       try {
-        // const elementId = this.props.elementId
         const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
           method: 'POST',
           body: JSON.stringify(commentToPost),
@@ -43,8 +42,6 @@ class AddComment extends React.Component {
         console.log(error)
       }
     }
-
-
 
     render() {
     return (
