@@ -1,8 +1,10 @@
-import { Card, Placeholder } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import Placeholder from 'react-bootstrap/Placeholder';
+
 
 const Placeholders = () => {
   return (
-      <Card style={{ width: "18rem" }}>
+      <Card>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Placeholder as={Card.Title} animation="glow">
