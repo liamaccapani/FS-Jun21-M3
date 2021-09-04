@@ -2,17 +2,17 @@ import { Button, Card, Col } from "react-bootstrap";
 
 const SingleMovie = ({ id, img, movieTitle, type, year }) => {
   return (
-    <Col key={id}>
+    <Col key={id} xs={12} md={6} lg={2}>
       <Card>
         <Card.Img variant="top" src={img} />
-        <Card.Body>
+        {/* <Card.Body>
           <Card.Title>{movieTitle}</Card.Title>
           {/* <Card.Text>
             <p>{type}</p>
             <p>{year}</p>
-          </Card.Text> */}
+          </Card.Text>
           <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
+        </Card.Body> */}
       </Card>
     </Col>
   );

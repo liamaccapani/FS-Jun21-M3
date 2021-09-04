@@ -17,11 +17,12 @@ const RowOfMovies = ({ title }) => {
       const response = await fetch(`${MOVIES_URL}s=${title}`);
       if (response.ok) {
         const data = await response.json();
-        //console.log(data.Search, "movies fetched"); 
-        //✨✨ data.Search!!!
 
-        setMovies(data);
+        //✨✨ store in variable!
+        const fetchedMovies = data.Search
+        setMovies(fetchedMovies);
         // console.log(movies)
+        
         setIsLoading(false);
 
       } else {
@@ -46,14 +47,14 @@ const RowOfMovies = ({ title }) => {
       <Row>
         {
           // (isLoading && <Spinner animation="border" variant="dark" />)
-          movies.map(movie => 
-            console.log(movie)
-            // <SingleMovie
-            //   id={movie.imdbID}
-            //   img={movie.Poster}
-            //   movieTitle={movie.Title}
-            // />
-            // <p>{movie}</p>
+          movies.slice(0,6).map((movie) => (
+            // console.log(movie)
+            <SingleMovie
+              id={movie.imdbID}
+              img={movie.Poster}
+              movieTitle={movie.Title}
+            />
+            )
           )
         }
       </Row>

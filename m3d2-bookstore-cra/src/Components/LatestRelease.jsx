@@ -12,7 +12,7 @@ const LatestRelease = (props) => {
       {
         scifi.map((book) => {
             return (
-            <Col xs={12} md={4} lg={3} key={book.asin}>
+            <Col xs={6} md={4} lg={3} key={book.asin}>
                 <Card className="h-100 py-2">
                     <Card.Img variant="top" src={book.img} />
                     <Card.Body>

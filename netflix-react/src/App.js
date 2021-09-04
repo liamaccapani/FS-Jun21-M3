@@ -14,9 +14,9 @@ function App() {
         <Header />
         
         {/* movies={result of fetch} */}
-        <RowOfMovies title="Harry Potter" />
-        {/* <RowOfMovies title="The Lord Of The Rings" />
-        <RowOfMovies title="Star Wars" /> */}
+        <RowOfMovies className="mt-3" title="Harry Potter" />
+        <RowOfMovies className="mt-3" title="The Lord Of The Rings" />
+        <RowOfMovies className="mt-3" title="Star Wars" />
   
         {/* <Footer /> */}
       </Router>
