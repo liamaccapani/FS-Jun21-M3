@@ -35,7 +35,9 @@ const RowOfMovies = ({ title }) => {
   };
 
   // CDM
-  useEffect(getMovies, []);
+  useEffect(() => {
+    getMovies()
+  }, []);
 
   return (
     <Container fluid>
