@@ -7,7 +7,7 @@ import SingleMovie from "./SingleMovie";
 const MOVIES_URL = "http://www.omdbapi.com/?apikey=4e755041&";
 
 const RowOfMovies = ({ title }) => {
-  // initial value -> empty array
+
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -17,22 +17,20 @@ const RowOfMovies = ({ title }) => {
       const response = await fetch(`${MOVIES_URL}s=${title}`);
       if (response.ok) {
         const data = await response.json();
-        console.log(data.Search, "movies fetched");
+        //console.log(data.Search, "movies fetched"); 
+        //✨✨ data.Search!!!
 
         setMovies(data.Search);
         // console.log(movies)
-
         setIsLoading(false);
-      } else {
-        throw new Error("Frau Blucher " + title);
-      }
-    } catch (error) {
-      console.log(error, "yeet");
 
+      } else {
+        throw new Error("Server Error" + title);
+      }
+
+    } catch (error) {
+      // console.log(error, "yeet");
       setIsError(true);
-      // <Alert variant="danger">
-      //     Uh oh, something's not quite right
-      // </Alert>;
     }
   };
 
@@ -45,13 +43,13 @@ const RowOfMovies = ({ title }) => {
       {/* map singlemovie */}
       <Row>
         {
-          movies.map(movie => {
-            //console.log(movie)
-            <SingleMovie
-              id={movie.imdbID}
-              img={movie.Poster}
-              title={movie.title}
-            />;
+          movies.slice(0,1).map(movie => {
+            console.log(movie)
+            // <SingleMovie
+            //   id={movie.imdbID}
+            //   img={movie.Poster}
+            //   movieTitle={movie.Title}
+            // />
           })
         }
       </Row>
@@ -60,6 +58,10 @@ const RowOfMovies = ({ title }) => {
 };
 
 export default RowOfMovies;
+
+// <Alert variant="danger">
+//     Uh oh, something's not quite right
+// </Alert>;
 
 {
   /* <Button onClick={()=> getMovies()}>Click</Button> */
