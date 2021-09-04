@@ -11,8 +11,10 @@ function App() {
       <CustomNav />
       <Header />
       {/* movies={result of fetch} */}
-      <RowOfMovies title="Row 1" />
-      
+      <RowOfMovies title="Harry Potter" />
+      <RowOfMovies title="The Lord Of The Rings" />
+      <RowOfMovies title="Star Wars" />
+
       <Footer />
     </div>
   );

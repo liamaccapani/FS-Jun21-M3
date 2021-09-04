@@ -1,10 +1,10 @@
 import { Card, Col } from "react-bootstrap";
 
-const SingleMovie = () => {
+const SingleMovie = ({id, img, title}) => {
   return (
     <Col>
         <Card>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={img} alt={title} />
         </Card>
     </Col>
   );

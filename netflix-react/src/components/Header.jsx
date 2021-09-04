@@ -2,9 +2,9 @@ import { Container, Dropdown } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <Container fluid className="d-flex justify-content-start">
+    <Container fluid className="d-flex justify-content-start my-3">
       <h3 className="mr-3">TV Shows</h3>
-      <Dropdown>
+      <Dropdown className="ml-2">
         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
           Genres
         </Dropdown.Toggle>
