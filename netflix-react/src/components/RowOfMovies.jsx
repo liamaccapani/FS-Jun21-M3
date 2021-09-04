@@ -20,7 +20,7 @@ const RowOfMovies = ({ title }) => {
         //console.log(data.Search, "movies fetched"); 
         //✨✨ data.Search!!!
 
-        setMovies(data.Search);
+        setMovies(data);
         // console.log(movies)
         setIsLoading(false);
 
@@ -45,14 +45,16 @@ const RowOfMovies = ({ title }) => {
       {/* map singlemovie */}
       <Row>
         {
-          movies.slice(0,1).map(movie => {
+          // (isLoading && <Spinner animation="border" variant="dark" />)
+          movies.map(movie => 
             console.log(movie)
             // <SingleMovie
             //   id={movie.imdbID}
             //   img={movie.Poster}
             //   movieTitle={movie.Title}
             // />
-          })
+            // <p>{movie}</p>
+          )
         }
       </Row>
     </Container>
