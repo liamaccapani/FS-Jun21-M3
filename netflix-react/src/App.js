@@ -18,7 +18,7 @@ function App() {
         <RowOfMovies className="mt-3" title="The Lord Of The Rings" />
         <RowOfMovies className="mt-3" title="Star Wars" />
   
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
   );

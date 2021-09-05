@@ -1,18 +1,22 @@
-import { Button, Card, Col } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Card, Col, Modal } from "react-bootstrap";
+
+import CommentArea from "./CommentArea";
 
 const SingleMovie = ({ id, img, movieTitle, type, year }) => {
+
+  const [selected, setIsSelected] = useState(false)
+
   return (
     <Col key={id} xs={12} md={6} lg={2}>
-      <Card>
+      <Card
+        onClick={() => {
+          setIsSelected(!selected)
+        }}
+        style={{border: selected ? '2px solid green' : 'none'}}
+      >
+        {selected && <CommentArea movieID={id}/>}
         <Card.Img variant="top" src={img} />
-        {/* <Card.Body>
-          <Card.Title>{movieTitle}</Card.Title>
-          {/* <Card.Text>
-            <p>{type}</p>
-            <p>{year}</p>
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body> */}
       </Card>
     </Col>
   );
@@ -20,13 +24,28 @@ const SingleMovie = ({ id, img, movieTitle, type, year }) => {
 
 export default SingleMovie;
 
-{
-  /* <Card.Body>
-  <Card.Title>Card Title</Card.Title>
-  <Card.Text>
-    Some quick example text to build on the card title and make up the bulk of
-    the card's content.
-  </Card.Text>
-  <Button variant="primary">Go somewhere</Button>
-</Card.Body>; */
-}
+// const fetchComments = async (query) => {
+//   try {
+//     const response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + query, {
+//       headers: {
+//         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZmJmMDJkNTI2MjAwMTViNmRjYWEiLCJpYXQiOjE2MzA4NDEyNjUsImV4cCI6MTYzMjA1MDg2NX0.HcgsX454Vtx8lsbQqfUq05Rwsmoa21I5OWRyvf0K74g'
+//       } 
+//     })
+//     if(response.ok){
+//       const data = await response.json()
+//       console.log(data)
+//     }
+    
+//   } catch (error) {
+//     console.log('Error!' + error)
+//   }
+// }
+
+{/* <Card.Body>
+          <Card.Title>{movieTitle}</Card.Title>
+          {/* <Card.Text>
+            <p>{type}</p>
+            <p>{year}</p>
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body> */}
