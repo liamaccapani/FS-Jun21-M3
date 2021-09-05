@@ -24,18 +24,17 @@ const RowOfMovies = ({ title }) => {
       const response = await fetch(`${MOVIES_URL}s=${title.toLowerCase()}`);
       if (response.ok) {
         const data = await response.json();
-
         //✨✨ store in variable!
         const fetchedMovies = data.Search;
         setMovies(fetchedMovies);
         setIsLoading(false);
       } else {
-        setIsLoading(false);
+        // setIsLoading(false);
         setIsError(true);
         throw new Error("Server Error" + title);
       }
     } catch (error) {
-      setIsLoading(false);
+      // setIsLoading(false);
       setIsError(true);
       throw new Error(error);
     }
@@ -52,7 +51,6 @@ const RowOfMovies = ({ title }) => {
       {isLoading && (
         <Spinner animation="border" variant="dark" className="mx-auto" />
       )}
-      {/* map singlemovie */}
 
       <Row>
         {movies.slice(0, 6).map((movie) => (
