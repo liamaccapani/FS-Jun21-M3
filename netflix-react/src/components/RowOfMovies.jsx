@@ -18,6 +18,7 @@ const RowOfMovies = ({ title }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
+  // FETCH FX
   const getMovies = async () => {
     try {
       const response = await fetch(`${MOVIES_URL}s=${title.toLowerCase()}`);
@@ -27,14 +28,16 @@ const RowOfMovies = ({ title }) => {
         //✨✨ store in variable!
         const fetchedMovies = data.Search;
         setMovies(fetchedMovies);
-        // console.log(movies)
         setIsLoading(false);
       } else {
+        setIsLoading(false);
+        setIsError(true);
         throw new Error("Server Error" + title);
       }
     } catch (error) {
-      // console.log(error, "yeet");
+      setIsLoading(false);
       setIsError(true);
+      throw new Error(error);
     }
   };
 
@@ -44,7 +47,7 @@ const RowOfMovies = ({ title }) => {
   }, []);
 
   return (
-    <Container fluid>
+    <Container fluid className="mb-4">
       <h4>{title}</h4>
       {isLoading && (
         <Spinner animation="border" variant="dark" className="mx-auto" />
@@ -57,7 +60,8 @@ const RowOfMovies = ({ title }) => {
           <SingleMovie
             id={movie.imdbID}
             img={movie.Poster}
-            movieTitle={movie.Title}
+            title={movie.Title}
+            year={movie.Year}
           />
         ))}
 
@@ -77,15 +81,3 @@ const RowOfMovies = ({ title }) => {
 };
 
 export default RowOfMovies;
-
-// MISSING
-// - Alert error
-// - Spinners
-
-// <Alert variant="danger">
-//     Uh oh, something's not quite right
-// </Alert>;
-
-{
-  /* <Button onClick={()=> getMovies()}>Click</Button> */
-}
