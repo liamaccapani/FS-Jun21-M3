@@ -30,7 +30,8 @@ const CommentList = ({ query, title }) => {
     } catch (error) {
       setIsError(true);
       setIsLoading(false);
-      throw new Error(error);
+      // throw new Error(error);
+      console.log(error)
     }
   };
 
